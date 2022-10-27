@@ -23,16 +23,19 @@ return parolaReverse;
 
 let parolaUtente = prompt("Inserisci qui una parola");
 
-parolAlcontraio (parolaUtente);
+let parolaFinale = parolAlcontraio (parolaUtente);
+
 
 let controllo = false;
 
-if (parolaUtente == parolAlcontraio) {
+if (parolaUtente === parolaFinale) {
     controllo = true;
-} 
+}
 
 if (controllo) {
     console.log("Questa è una parola Palindroma");
 } else {
     console.log("Questa NON è una parola Palindroma");
 }
+
+ // funziona
