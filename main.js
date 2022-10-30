@@ -6,24 +6,24 @@
 // - Bob == bob => si
 // - parola palindroma
 
-function parolAlcontraio (x) {
+function parolAlcontraio(x) {
 
-let parola = x;
-let parolaReverse = '';
+    let parola = x;
+    let parolaReverse = '';
 
-for( let i = parola.length - 1 ; i >= 0 ; i-- ){
-  parolaReverse += parola[i]
+    for (let i = parola.length - 1; i >= 0; i--) {
+        parolaReverse += parola[i]
 
-}
-console.log( `${parolaReverse}` );
+    }
+    console.log(`${parolaReverse}`);
 
-return parolaReverse;
+    return parolaReverse;
 }
 //--------------- Fine Funzione
 
 let parolaUtente = prompt("Inserisci qui una parola");
 
-let parolaFinale = parolAlcontraio (parolaUtente);
+let parolaFinale = parolAlcontraio(parolaUtente);
 
 
 let controllo = false;
@@ -38,7 +38,7 @@ if (controllo) {
     console.log("Questa NON è una parola Palindroma");
 }
 
- // funziona
+// funziona
 
 //______________________________________________________________\\
 
@@ -49,18 +49,51 @@ if (controllo) {
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
 
-let pari = document.getElementById("Pari");
-let dispari = document.getElementById("Dispari");
-let scelta ="";
+let sceltaUtente = prompt("Pari o Dispari?").toLowerCase();
 
-function sceltaPari (scelta) {
-    let scelta = prompt("Inserisci qui un numero pari");
 
-return scelta;
+function numeroRandomPC(min, max) {
+
+    let numeroRandom = Math.floor(Math.random() * (max - min + min)) + min;
+
+    return numeroRandom;
 }
-console.log(scelta);
+
+function pariDispari(numero) {
+
+    if (numero % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
-function sceltaDispari () {
-    let scelta = prompt("Inserisci qui un numero dispari");
+if (sceltaUtente == "pari" || sceltaUtente == "dispari") {
+    let sceltaNumero = parseInt(prompt("scegli un numero da 1 a 5"));
+
+    if (sceltaNumero >= 1 && sceltaNumero <= 5) {
+        console.log(`hai scelto ${sceltaNumero}`);
+
+        let numeroRandomicoPc = numeroRandomPC(1, 5);
+        console.log(`il numero che ha scelto il pc è ${numeroRandomicoPc}`);
+
+        let somma = sceltaNumero + numeroRandomicoPc;
+
+        console.log(`la somma è ${somma}`);
+
+        if (sceltaUtente == "pari" && pariDispari(somma) == true) {
+            console.log("Hai vinto :)");
+        } else  if (sceltaUtente == "dispari" && pariDispari(somma) == false) {
+            console.log("Hai vinto :)");
+        } else {
+            console.log("Hai perso.");
+        }
+
+    } else {
+        console.log("Scegli un numero valido GENTILMENTE.")
+    }
+
+} else {
+    console.log("Scegli solo PARI o DISPARI");
 }
